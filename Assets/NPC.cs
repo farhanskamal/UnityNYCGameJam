@@ -10,6 +10,8 @@ public class NPC : MonoBehaviour
     public GameObject shirt;
     public GameObject pants;
     public GameObject hat;
+
+    public bool isMarked = false;
     // Start is called before the first frame update
     void Start()
     {
