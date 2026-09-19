@@ -5,6 +5,10 @@ using UnityEngine;
 public class Bounty : MonoBehaviour
 {
     public List<string> descriptor;
+
+    public List<string> descriptions;
+    public List<string> colors;
+    public NPCAssetHolder npcAssets;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +28,9 @@ public class Bounty : MonoBehaviour
     void SetBounty()
     {
         print("You have one job... take out the one with " + descriptor[Random.Range(0, descriptor.Count)]);
+    }
+    void descriptionStrings()
+    {
+        
     }
 }
