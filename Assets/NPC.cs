@@ -15,6 +15,8 @@ public class NPC : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public GameObject hat;
     public GameObject accessory;
 
+    public Animator animator;
+
     public GameObject mark;
     public bool isMarked = false;
 
@@ -59,6 +61,7 @@ public class NPC : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if(availablemovements[directionmovingto].GetComponent<HitBoxCheck>().blockedpath)
             {
                 ismoving = false;
+                animator.SetBool("Idle", true);
                 availablemovements = new List<GameObject>();
             }
             else
@@ -69,6 +72,7 @@ public class NPC : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 Vector3 direction = (locationtomove.position - transform.position).normalized;
 
                 transform.Translate(direction * 2.2f * Time.deltaTime, Space.World);
+                animator.SetBool("Idle", false);
             }
         }
     }
@@ -152,8 +156,10 @@ public class NPC : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     IEnumerator movement()
     {
         ismoving = true;
+        animator.SetBool("Idle", false);
         yield return new WaitForSeconds(Random.Range(.33f, 1f));
         ismoving = false;
+        animator.SetBool("Idle", true);
     }
     public void OnPointerEnter(PointerEventData eventData)
     {

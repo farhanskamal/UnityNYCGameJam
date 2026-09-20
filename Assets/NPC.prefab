@@ -781,6 +781,7 @@ GameObject:
   - component: {fileID: 2485992138434998930}
   - component: {fileID: 5381931973140518395}
   - component: {fileID: 6227515811305613577}
+  - component: {fileID: 8276318709053583727}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -889,6 +890,7 @@ MonoBehaviour:
   pants: {fileID: 3630698691515593922}
   hat: {fileID: 2097560013212287436}
   accessory: {fileID: 8696240750792735637}
+  animator: {fileID: 8276318709053583727}
   mark: {fileID: 4278421974964804242}
   isMarked: 0
   hoveringover: 0
@@ -978,6 +980,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!95 &8276318709053583727
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541333907265231345}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e57081d1cd741c2479b853251073ccd5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5605224713949061223
 GameObject:
   m_ObjectHideFlags: 0
