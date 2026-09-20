@@ -11,6 +11,7 @@ public class Dialogue : MonoBehaviour
     public string[] names; // Name 
     public string[] lines; // serialized field of idalogue
     public float textSpeed; // How fast text goes
+    public GameObject yes;
 
     private int index;
 
@@ -19,7 +20,6 @@ public class Dialogue : MonoBehaviour
     {
         textC.text = string.Empty; // set dialogue lines empty
         NameC.text = string.Empty; // set name empty
-        StartTalking(); // start the talking function
     }
 
     // Update is called once per frame
@@ -40,8 +40,9 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    void StartTalking() // When function starts talking
+    public void StartTalking() // When function starts talking
     {
+        yes.SetActive(true);
         index = 0; // start at determine first line
         StartCoroutine(TypeLine()); // start moving up 1
     }
@@ -71,7 +72,7 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            yes.SetActive(false);
         }
     }
 }
