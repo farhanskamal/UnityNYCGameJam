@@ -8,6 +8,6 @@ public class Start : MonoBehaviour
     // Start is called before the first frame update
     public void OnStartClick()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("hiE");
     }
 }
