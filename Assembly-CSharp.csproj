@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Dialogue.cs" />
     <Compile Include="Assets\Scripts\BetaPathFinding.cs" />
     <Compile Include="Assets\Scripts\dialogueT.cs" />
+    <Compile Include="Assets\Scripts\AddAtEnd.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\CameraBoundScript.cs" />
     <Compile Include="Assets\Scripts\CutsceneI.cs" />

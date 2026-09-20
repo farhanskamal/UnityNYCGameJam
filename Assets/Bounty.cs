@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Bounty : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class Bounty : MonoBehaviour
     public bool facialhair;
     public bool upperwares;
     public int hat;
-    // Start is called before the first frame update
+
+    public TextMeshProUGUI myTextComponent;
     void Start()
     {
 
@@ -76,54 +78,54 @@ public class Bounty : MonoBehaviour
         {
             if(upperwares)
             {
-                print(descriptions[randomnum] + "either a shirt or jacket...");
+                myTextComponent.text = (descriptions[randomnum] + "either a shirt or jacket...");
             }
             else
             {
-                print(descriptions[randomnum] + "nothing on the upper body... weirdo");
+                myTextComponent.text = (descriptions[randomnum] + "nothing on the upper body... weirdo");
             }
         }
         else if(randomnum == 1)
         {
-            print(descriptions[randomnum] + " " + gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().accessory.GetComponent<SpriteRenderer>().sprite.name);
+            myTextComponent.text = (descriptions[randomnum] + " " + gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().accessory.GetComponent<SpriteRenderer>().sprite.name);
         }
         else if(randomnum == 2)
         {
             if(hat == 1)
             {
-                print(descriptions[randomnum] + "short hair");
+                myTextComponent.text = (descriptions[randomnum] + "short hair");
             }
             if(hat == 2)
             {
-                print(descriptions[randomnum] + "long hair");
+                myTextComponent.text = (descriptions[randomnum] + "long hair");
             }
             if(hat == 3)
             {
-                print(descriptions[randomnum] + "a hat");
+                myTextComponent.text = (descriptions[randomnum] + "a hat");
             }
             if(hat == 4)
             {
-                print(descriptions[randomnum] + "no headwear, he may be bald");
+                myTextComponent.text = (descriptions[randomnum] + "no headwear, he may be bald");
             }
         }
         else if(randomnum == 3)
         {
-            print("hair color not assigned yet.");
+            myTextComponent.text = ("hair color not assigned yet.");
         }
         else if(randomnum == 4)
         {
             if(facialhair)
             {
-                print(descriptions[randomnum] + "facial hair...");
+                myTextComponent.text = (descriptions[randomnum] + "facial hair...");
             }
             else
             {
-                print(descriptions[randomnum] + "no facial hair.");
+                myTextComponent.text = (descriptions[randomnum] + "no facial hair.");
             }
         }
         else if(randomnum == 5)
         {
-            print(descriptions[randomnum] + "moving");
+            myTextComponent.text = (descriptions[randomnum] + "moving");
         }
         /*“Your target is wearing, uhh, a [color variable] [clothing variable].”
         “I think they have a [accessory variable].”
