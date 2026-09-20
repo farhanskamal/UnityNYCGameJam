@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems; 
 
-public class NPC : MonoBehaviour
+public class NPC : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public NPCAssetHolder NPCAssets;
     public GameObject gameManager;
@@ -15,6 +16,17 @@ public class NPC : MonoBehaviour
 
     public GameObject mark;
     public bool isMarked = false;
+
+    public bool hoveringover;
+
+    public GameObject[] hitboxes;
+
+    public bool ismoving;
+    public float timer;
+    public float randomtime;
+    public int directionmovingto;
+
+    public List<GameObject> availablemovements = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +35,42 @@ public class NPC : MonoBehaviour
         RandomizeOutfit();
     }
 
+
+    void FixedUpdate()
+    {
+        timer += Time.fixedDeltaTime;
+        if(timer >= randomtime)
+        {
+            foreach(GameObject barrier in hitboxes)
+            {
+                if(barrier.GetComponent<HitBoxCheck>().blockedpath == false)
+                {
+                    availablemovements.Add(barrier);
+                }
+            }
+            directionmovingto = Random.Range(0, availablemovements.Count);
+            StartCoroutine(movement());
+            timer = 0;
+            randomtime = Random.Range(1f, 1.8f);
+        }
+        if(ismoving)
+        {
+            if(availablemovements[directionmovingto].GetComponent<HitBoxCheck>().blockedpath)
+            {
+                ismoving = false;
+                availablemovements = new List<GameObject>();
+            }
+            else
+            {
+                Transform locationtomove;
+                locationtomove = availablemovements[directionmovingto].transform;
+
+                Vector3 direction = (locationtomove.position - transform.position).normalized;
+
+                transform.Translate(direction * 2.2f * Time.deltaTime, Space.World);
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -39,7 +87,17 @@ public class NPC : MonoBehaviour
         {
             RandomizeOutfit();
         }
+
+        if(Input.GetKeyDown(KeyCode.M) && hoveringover && !isMarked)
+        {
+            isMarked = true;
+        }
+        else if(Input.GetKeyDown(KeyCode.M) && hoveringover && isMarked)
+        {
+            isMarked = false;
+        }
     }
+
     void RandomizeOutfit()
     {
         mouth.GetComponent<SpriteRenderer>().sprite = NPCAssets.mouth[Random.Range(0, NPCAssets.mouth.Count)];
@@ -78,5 +136,21 @@ public class NPC : MonoBehaviour
                 }
             }
         }
+    }
+    IEnumerator movement()
+    {
+        ismoving = true;
+        yield return new WaitForSeconds(Random.Range(.33f, 1f));
+        ismoving = false;
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        hoveringover = true;
+        Debug.Log("Detect Entry");
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        hoveringover = false;
+        Debug.Log("Detect Exit");
     }
 }
