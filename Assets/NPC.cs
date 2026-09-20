@@ -99,7 +99,7 @@ public class NPC : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         if(Input.GetMouseButtonDown(0) && hoveringover && gameManager.GetComponent<GameManager>().scoped)
         {
-            if(this.gameObject == gameManager.Hunted)
+            if(this.gameObject == gameManager.GetComponent<GameManager>().Hunted)
             {
                 SceneManager.LoadScene(2);
             }
