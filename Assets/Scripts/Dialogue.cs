@@ -5,17 +5,21 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
-    public TextMeshProUGUI textC;
-    public string[] lines;
-    public float textSpeed;
+    // Line 8 and 9 create variables that we will manipulate to change text
+    public TextMeshProUGUI textC; // Dialogue
+    public TextMeshProUGUI NameC; // Name
+    public string[] names; // Name 
+    public string[] lines; // serialized field of idalogue
+    public float textSpeed; // How fast text goes
 
     private int index;
 
     // Start is called before the first frame update
     void Start()
     {
-        textC.text = string.Empty;
-        StartTalking();
+        textC.text = string.Empty; // set dialogue lines empty
+        NameC.text = string.Empty; // set name empty
+        StartTalking(); // start the talking function
     }
 
     // Update is called once per frame
@@ -24,39 +28,45 @@ public class Dialogue : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             //|| Input.GetKeyDown("E")
-            if (textC.text == lines[index])
+            if (textC.text == lines[index]) // If the text content is the same as whats listed
             {
-                NextPart();
+                NextPart(); // Move to the next part function plays
             }
-            else
+            else // If not
             {
-                StopAllCoroutines();
-                textC.text = lines[index];
+                StopAllCoroutines(); // Pause typing
+                textC.text = lines[index]; // check if its the same text
             }
         }
     }
 
-    void StartTalking()
+    void StartTalking() // When function starts talking
     {
-        index = 0;
-        StartCoroutine(TypeLine());
+        index = 0; // start at determine first line
+        StartCoroutine(TypeLine()); // start moving up 1
     }
 
-    IEnumerator TypeLine()
+    IEnumerator TypeLine() // In this system
     {
-        foreach (char c in lines[index].ToCharArray())
+        foreach (char c in names[index].ToCharArray())
         {
-            textC.text += c;
+            NameC.text += c;
+            yield return new WaitForSeconds(textSpeed);
+        }
+        foreach (char c in lines[index].ToCharArray()) // we check each letter in the dialogue for it
+        {
+            textC.text += c; // We add each character in
             yield return new WaitForSeconds(textSpeed);
         }
     }
 
     void NextPart()
     {
-        if(index < lines.Length - 1)
+        if(index < lines.Length - 1 && index < names.Length -1)
         {
             index++;
             textC.text = string.Empty;
+            NameC.text = string.Empty;
             StartCoroutine(TypeLine());
         }
         else
