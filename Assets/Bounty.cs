@@ -110,7 +110,7 @@ public class Bounty : MonoBehaviour
         }
         else if(randomnum == 3)
         {
-            myTextComponent.text = ("hair color not assigned yet.");
+            myTextComponent.text = ("Let me think of what else...");
         }
         else if(randomnum == 4)
         {
