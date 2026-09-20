@@ -9,11 +9,12 @@ public class Bounty : MonoBehaviour
     public List<string> descriptions;
     public List<string> colors;
     public NPCAssetHolder npcAssets;
+    public GameObject gameManager;
     // Start is called before the first frame update
     void Start()
     {
 
-
+        gameManager = GameObject.Find("GameManager");
         
     }
 
@@ -27,7 +28,8 @@ public class Bounty : MonoBehaviour
     }
     void SetBounty()
     {
-        print("You have one job... take out the one with " + descriptor[Random.Range(0, descriptor.Count)]);
+        int randomnum = Random.Range(0, descriptor.Count);
+        print("You have one job... take out the one with " + descriptor[randomnum]);
     }
     void descriptionStrings()
     {
