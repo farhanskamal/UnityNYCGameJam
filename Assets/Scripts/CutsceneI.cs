@@ -16,7 +16,7 @@ public class CutsceneI : MonoBehaviour
         if (SM.GetComponent<StoryM>().firstTime == true) 
         {
             CutsceneH.PlayNextElement();
-            yap.GetComponent<Dialogue>().names = new List<string>() {"John", "Pork", "Ethan", "Paul"};
+            // yap.GetComponent<Dialogue>().names = new List<string>() {"John", "Pork", "Ethan", "Paul"};
             yap.GetComponent<Dialogue>().StartTalking(); // start the talking function
         }
         else 
