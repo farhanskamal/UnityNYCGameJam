@@ -96,6 +96,10 @@ public class NPC : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             isMarked = false;
         }
+        if(Input.GetMouseButtonDown(0) && hoveringover && gameManager.GetComponent<GameManager>().scoped)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void RandomizeOutfit()
