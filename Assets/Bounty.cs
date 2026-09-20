@@ -13,6 +13,7 @@ public class Bounty : MonoBehaviour
 
     public bool facialhair;
     public bool upperwares;
+    public int hat;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,9 @@ public class Bounty : MonoBehaviour
         {
             SetBounty();
         }
-        if(gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().mouth.GetComponent<SpriteRenderer>().sprite.name == "BushyStache" || gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().mouth.GetComponent<SpriteRenderer>().sprite.name == "TinyStache" || gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().mouth.GetComponent<SpriteRenderer>().sprite.name == "Beard")
+        if(gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().mouth.GetComponent<SpriteRenderer>().sprite.name == "BushyStache" 
+        || gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().mouth.GetComponent<SpriteRenderer>().sprite.name == "TinyStache" 
+        || gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().mouth.GetComponent<SpriteRenderer>().sprite.name == "Beard")
         {
             facialhair = true;
         }
@@ -36,13 +39,34 @@ public class Bounty : MonoBehaviour
         {
             facialhair = false;
         }
-        if(gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().shirt.GetComponent<SpriteRenderer>().sprite.name == "PuffyJacket" || gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().shirt.GetComponent<SpriteRenderer>().sprite.name == "Shirt")
+        if(gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().shirt.GetComponent<SpriteRenderer>().sprite == null)
+        {
+            upperwares = false;
+        }
+        else if(gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().shirt.GetComponent<SpriteRenderer>().sprite.name == "PuffyJacket" 
+        || gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().shirt.GetComponent<SpriteRenderer>().sprite.name == "Shirt")
         {
             upperwares = true;
         }
+        if(gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().hat.GetComponent<SpriteRenderer>().sprite == null)
+        {
+            hat = 4;
+        }
+        else if(gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().hat.GetComponent<SpriteRenderer>().sprite.name == "Hair1" 
+        || gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().hat.GetComponent<SpriteRenderer>().sprite.name == "Hair3" 
+        || gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().hat.GetComponent<SpriteRenderer>().sprite.name == "Hair4")
+        {
+            hat = 1;
+        }
+        else if(gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().hat.GetComponent<SpriteRenderer>().sprite.name == "Hair2" 
+        || gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().hat.GetComponent<SpriteRenderer>().sprite.name == "Hair5" 
+        || gameManager.GetComponent<GameManager>().Hunted.GetComponent<NPC>().hat.GetComponent<SpriteRenderer>().sprite.name == "Hair6")
+        {
+            hat = 2;
+        }
         else
         {
-            upperwares = false;
+            hat = 3;
         }
     }
     void SetBounty()
@@ -65,15 +89,41 @@ public class Bounty : MonoBehaviour
         }
         else if(randomnum == 2)
         {
-
+            if(hat == 1)
+            {
+                print(descriptions[randomnum] + "short hair");
+            }
+            if(hat == 2)
+            {
+                print(descriptions[randomnum] + "long hair");
+            }
+            if(hat == 3)
+            {
+                print(descriptions[randomnum] + "a hat");
+            }
+            if(hat == 4)
+            {
+                print(descriptions[randomnum] + "no headwear, he may be bald");
+            }
         }
         else if(randomnum == 3)
         {
-
+            print("hair color not assigned yet.");
         }
         else if(randomnum == 4)
         {
-
+            if(facialhair)
+            {
+                print(descriptions[randomnum] + "facial hair...");
+            }
+            else
+            {
+                print(descriptions[randomnum] + "no facial hair.");
+            }
+        }
+        else if(randomnum == 5)
+        {
+            print(descriptions[randomnum] + "moving");
         }
         /*“Your target is wearing, uhh, a [color variable] [clothing variable].”
         “I think they have a [accessory variable].”

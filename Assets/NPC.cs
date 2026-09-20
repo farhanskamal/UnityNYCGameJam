@@ -146,11 +146,9 @@ public class NPC : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         hoveringover = true;
-        Debug.Log("Detect Entry");
     }
     public void OnPointerExit(PointerEventData eventData)
     {
         hoveringover = false;
-        Debug.Log("Detect Exit");
     }
 }

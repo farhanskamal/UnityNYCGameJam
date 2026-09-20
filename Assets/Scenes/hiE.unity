@@ -625,8 +625,8 @@ MonoBehaviour:
   - glasses
   - glasses
   descriptions:
-  - Your target is wearing , uhh, a
-  - 'I think they have a '
+  - 'Your target is wearing , uhh, '
+  - I think they have a
   - 'Your target has '
   - "Your target\u2019s hair is\u2026 "
   - 'They have '
@@ -636,6 +636,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   facialhair: 0
   upperwares: 0
+  hat: 0
 --- !u!4 &682793049
 Transform:
   m_ObjectHideFlags: 0

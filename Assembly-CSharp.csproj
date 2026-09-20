@@ -60,14 +60,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\HitBoxCheck.cs" />
+    <Compile Include="Assets\StoryM.cs" />
     <Compile Include="Assets\NPCAssetHolder.cs" />
     <Compile Include="Assets\Scripts\Dialogue.cs" />
     <Compile Include="Assets\Scripts\BetaPathFinding.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\CameraBoundScript.cs" />
+    <Compile Include="Assets\Scripts\CutsceneI.cs" />
     <Compile Include="Assets\Bounty.cs" />
+    <Compile Include="Assets\Scripts\CutsceneEB.cs" />
     <Compile Include="Assets\NPC.cs" />
     <Compile Include="Assets\Scripts\CrossHairFollowmouse.cs" />
+    <Compile Include="Assets\Scripts\dummy.cs" />
     <Compile Include="Assets\Start.cs" />
+    <Compile Include="Assets\Scripts\CutsceneH.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
