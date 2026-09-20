@@ -3,13 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
-public class dialogueC
-    {
-        public string[] names; // Name 
-        public string[] lines; // serialized field of idalogue
-    }
-
 public class Dialogue : MonoBehaviour
 {
     // Line 8 and 9 create variables that we will manipulate to change text
@@ -19,6 +12,7 @@ public class Dialogue : MonoBehaviour
     public string[] lines; // serialized field of idalogue
     public float textSpeed; // How fast text goes
     public GameObject yes;
+    public GameObject panel;
 
     private int index;
 

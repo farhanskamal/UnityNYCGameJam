@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serialized]
-
-public class Dialogue 
+public class dialogueT : MonoBehaviour
 {
-    public string Name;
-    public string[] dialogue;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

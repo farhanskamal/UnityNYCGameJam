@@ -12,7 +12,7 @@ public class CutsceneI : MonoBehaviour
     {
         CutsceneH = GetComponent<CutsceneH>();
         SM = GameObject.Find("StoryM");
-        yap = GameObject.Find("Canvas");
+        yap = GameObject.Find("DialogueBox");
         if (SM.GetComponent<StoryM>().firstTime == true) 
         {
             CutsceneH.PlayNextElement();
