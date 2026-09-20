@@ -8,11 +8,12 @@ public class Dialogue : MonoBehaviour
     // Line 8 and 9 create variables that we will manipulate to change text
     public TextMeshProUGUI textC; // Dialogue
     public TextMeshProUGUI NameC; // Name
-    public string[] names; // Name 
+    public List<string> names; // Name 
     public string[] lines; // serialized field of idalogue
     public float textSpeed; // How fast text goes
     public GameObject yes;
     public GameObject panel;
+    public bool Directions;
 
     private int index;
 
@@ -26,6 +27,11 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            names[0] = "Farhan";
+            names.Add("Richard");
+        }
         if(Input.GetMouseButtonDown(0))
         {
             //|| Input.GetKeyDown("E")
@@ -39,6 +45,16 @@ public class Dialogue : MonoBehaviour
                 textC.text = lines[index]; // check if its the same text
             }
         }
+
+        if (Directions == true)
+        {
+            
+        }
+    }
+
+    public void DirectionsE()
+    {
+        
     }
 
     public void StartTalking() // When function starts talking
@@ -64,7 +80,7 @@ public class Dialogue : MonoBehaviour
 
     void NextPart()
     {
-        if(index < lines.Length - 1 && index < names.Length -1)
+        if(index < lines.Length - 1 && index < names.Count -1)
         {
             index++;
             textC.text = string.Empty;
