@@ -12,11 +12,11 @@ public class CutsceneI : MonoBehaviour
     {
         CutsceneH = GetComponent<CutsceneH>();
         SM = GameObject.Find("StoryM");
-        yap = GameObject.Find("Canvas");
+        yap = GameObject.Find("DialogueBox");
         if (SM.GetComponent<StoryM>().firstTime == true) 
         {
             CutsceneH.PlayNextElement();
-            //yap.GetComponent<Dialogue>().names = new List<string>() {"John", "Pork", "Ethan", "Paul"};
+            // yap.GetComponent<Dialogue>().names = new List<string>() {"John", "Pork", "Ethan", "Paul"};
             yap.GetComponent<Dialogue>().StartTalking(); // start the talking function
         }
         else 

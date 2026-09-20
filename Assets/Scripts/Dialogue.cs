@@ -12,6 +12,7 @@ public class Dialogue : MonoBehaviour
     public string[] lines; // serialized field of idalogue
     public float textSpeed; // How fast text goes
     public GameObject yes;
+    public GameObject panel;
 
     private int index;
 
