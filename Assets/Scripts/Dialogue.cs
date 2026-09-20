@@ -15,7 +15,7 @@ public class Dialogue : MonoBehaviour
     public GameObject panel;
     public bool Directions;
 
-    private int index;
+    public int index;
 
     // Start is called before the first frame update
     void Start()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems; 
+using UnityEngine.SceneManagement;
 
 public class NPC : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -98,7 +99,14 @@ public class NPC : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         if(Input.GetMouseButtonDown(0) && hoveringover && gameManager.GetComponent<GameManager>().scoped)
         {
-            Destroy(this.gameObject);
+            if(this.gameObject == gameManager.GetComponent<GameManager>().Hunted)
+            {
+                SceneManager.LoadScene(2);
+            }
+            else
+            {
+                SceneManager.LoadScene(3);
+            }
         }
     }
 
