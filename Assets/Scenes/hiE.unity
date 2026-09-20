@@ -963,7 +963,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: attempting to consolidate user on status 0
+  m_text: Press SPACE to ask for Description.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2434,6 +2434,7 @@ MonoBehaviour:
   yes: {fileID: 153020402}
   panel: {fileID: 153020402}
   Directions: 0
+  index: 0
 --- !u!222 &1302026060
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2706,6 +2707,7 @@ MonoBehaviour:
   yes: {fileID: 1496460774}
   panel: {fileID: 1496460774}
   Directions: 0
+  index: 0
 --- !u!222 &1430397051
 CanvasRenderer:
   m_ObjectHideFlags: 0
