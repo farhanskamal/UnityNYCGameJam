@@ -20,7 +20,7 @@ public class HitBoxCheck : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Barrier"))
         {
-            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255f, 0f, 0f, 255f);
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255f, 0f, 0f, 0f);
             blockedpath = true;
         }
     }
@@ -28,7 +28,7 @@ public class HitBoxCheck : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Barrier"))
         {
-            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255f, 0f, 0f, 255f);
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255f, 0f, 0f, 0f);
             blockedpath = true;
         }
     }
