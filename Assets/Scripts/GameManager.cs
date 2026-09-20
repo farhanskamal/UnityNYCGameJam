@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] spawnlocations;
     public GameObject NPCPref;
+
+    public GameObject camera;
+    public GameObject scope;
+    public bool scoped;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +30,22 @@ public class GameManager : MonoBehaviour
         if(NPCs.Count == 20 && Hunted == null)
         {
             Hunted = NPCs[Random.Range(0, NPCs.Count)];
+        }
+
+        if(Input.GetMouseButtonDown(1) && !scoped)
+        {
+            camera.GetComponent<Camera>().orthographicSize = 2.5f;
+            scoped = true;
+            scope.SetActive(true);
+            camera.GetComponent<CameraBoundScript>().movement = true;
+        }
+        else if(Input.GetMouseButtonDown(1) && scoped)
+        {
+            camera.GetComponent<Camera>().orthographicSize = 5f;
+            camera.transform.position = new Vector3(0, 1, -10);
+            scoped = false;
+            scope.SetActive(false);
+            camera.GetComponent<CameraBoundScript>().movement = false;
         }
     }
 }
